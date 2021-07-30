@@ -8,7 +8,8 @@ import { navLinks } from './navLinks';
 import styles from './styles.module.css';
 
 const Nav = () => {
-  const { isLoggedIn, role, robots, robotsLoaded } = useContext(UserContext);
+  const { isLoggedIn, role, robots, robotsLoaded, destroyed } =
+    useContext(UserContext);
 
   return (
     <nav className={`${styles.Nav} ${isLoggedIn ? styles.LoggedIn : ''}`}>
@@ -18,7 +19,8 @@ const Nav = () => {
           .filter(({ roles }) => !roles || roles.includes(role as Role))
           .map(({ label, to, icon, exact = false }) => {
             if (label === 'Robots' && robotsLoaded) {
-              label += ` (${robots.length})`;
+              const text = destroyed ? 'Destroyed' : robots.length;
+              label += ` (${text})`;
             }
 
             return (
