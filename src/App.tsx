@@ -1,12 +1,12 @@
 import '@fortawesome/fontawesome-free/js/all.js';
 
 import Routes from './routes';
-import AppProvider from './context/app';
+import UserProvider from './context/user';
 
 const App = () => (
-  <AppProvider>
+  <UserProvider>
     <Routes />
-  </AppProvider>
+  </UserProvider>
 );
 
 export default App;

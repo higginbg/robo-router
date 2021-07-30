@@ -1,14 +1,14 @@
 import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import { AppContext } from '../../context/app';
+import { UserContext } from '../../context/user';
 import { Role } from '../../models/roles';
 import { navLinks } from './navLinks';
 
 import styles from './styles.module.css';
 
 const Nav = () => {
-  const { isLoggedIn, role, robots } = useContext(AppContext);
+  const { isLoggedIn, role, robots, robotsLoaded } = useContext(UserContext);
 
   return (
     <nav className={`${styles.Nav} ${isLoggedIn ? styles.LoggedIn : ''}`}>
@@ -17,8 +17,8 @@ const Nav = () => {
         {navLinks
           .filter(({ roles }) => !roles || roles.includes(role as Role))
           .map(({ label, to, icon, exact = false }) => {
-            if (label === 'Robots') {
-              label += ` (${(robots || []).length})`;
+            if (label === 'Robots' && robotsLoaded) {
+              label += ` (${robots.length})`;
             }
 
             return (

@@ -1,7 +1,7 @@
 import { useContext, Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import { AppContext } from '../context/app';
+import { UserContext } from '../context/user';
 import Nav from '../components/Nav';
 import Header from '../components/Header';
 import AdminRoutes from './admin';
@@ -12,7 +12,7 @@ const Login = lazy(() => import('../pages/public/Login'));
 const NotFound = lazy(() => import('../pages/public/NotFound'));
 
 const Routes = () => {
-  const { role } = useContext(AppContext);
+  const { role } = useContext(UserContext);
 
   const fallback = (
     <div

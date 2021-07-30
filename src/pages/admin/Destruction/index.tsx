@@ -1,11 +1,11 @@
 import { useContext } from 'react';
 import Button from '../../../components/Button';
-import { AppContext } from '../../../context/app';
+import { UserContext } from '../../../context/user';
 
 import styles from './styles.module.css';
 
 const Destruction = () => {
-  const { destroyed, destroy } = useContext(AppContext);
+  const { destroyed, destroy } = useContext(UserContext);
 
   if (destroyed) {
     return (

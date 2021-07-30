@@ -4,24 +4,26 @@ import { Robot } from '../models/robot';
 
 import { Role } from '../models/roles';
 
-interface AppStore {
+interface UserStore {
   isLoggedIn: boolean;
   role: '' | Role;
   login: (role: Role) => void;
   logout: () => void;
-  robots: Robot[] | null;
-  setRobots: (robots: Robot[] | null) => void;
+  robots: Robot[];
+  robotsLoaded: boolean;
+  loadRobots: (robots: Robot[]) => void;
   destroyed: boolean;
   destroy: () => void;
 }
 
-export const AppContext = createContext<AppStore>({
+export const UserContext = createContext<UserStore>({
   isLoggedIn: false,
   role: '' as '' | Role,
   login: () => {},
   logout: () => {},
   robots: robotsData,
-  setRobots: (robots) => {},
+  robotsLoaded: false,
+  loadRobots: (robots) => {},
   destroyed: false,
   destroy: () => {},
 });
@@ -29,7 +31,8 @@ export const AppContext = createContext<AppStore>({
 const UserProvider: FC = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [role, setRole] = useState('' as '' | Role);
-  const [robots, setRobots] = useState(null as Robot[] | null);
+  const [robotsLoaded, setRobotsLoaded] = useState(false);
+  const [robots, setRobots] = useState([] as Robot[]);
   const [destroyed, setDestroyed] = useState(false);
 
   const login = (role: Role) => {
@@ -41,29 +44,36 @@ const UserProvider: FC = ({ children }) => {
     setRole('');
     setIsLoggedIn(false);
     setDestroyed(false);
-    setRobots(null);
+    setRobots([]);
+    setRobotsLoaded(false);
+  };
+
+  const loadRobots = (robots: Robot[]) => {
+    setRobotsLoaded(true);
+    setRobots(robots);
   };
 
   const destroy = () => {
-    setRobots(null);
+    setRobots([]);
     setDestroyed(true);
   };
 
   return (
-    <AppContext.Provider
+    <UserContext.Provider
       value={{
         isLoggedIn,
         role,
         login,
         logout,
         robots,
-        setRobots,
+        robotsLoaded,
+        loadRobots,
         destroyed,
         destroy,
       }}
     >
       {children}
-    </AppContext.Provider>
+    </UserContext.Provider>
   );
 };
 

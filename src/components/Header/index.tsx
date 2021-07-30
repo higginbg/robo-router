@@ -1,12 +1,12 @@
 import { useContext, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import { AppContext } from '../../context/app';
+import { UserContext } from '../../context/user';
 
 import styles from './styles.module.css';
 
 const Header = () => {
-  const { isLoggedIn, logout } = useContext(AppContext);
+  const { isLoggedIn, logout } = useContext(UserContext);
 
   const history = useHistory();
 

@@ -1,14 +1,14 @@
 import { useContext, useState } from 'react';
 import { Redirect } from 'react-router-dom';
 
-import { AppContext } from '../../../context/app';
+import { UserContext } from '../../../context/user';
 import Button from '../../../components/Button';
 import { Role } from '../../../models/roles';
 
 import styles from './styles.module.css';
 
 const Login = () => {
-  const { isLoggedIn, login } = useContext(AppContext);
+  const { isLoggedIn, login } = useContext(UserContext);
 
   const [pending, setPending] = useState(false);
   const [role, setRole] = useState('User' as Role);

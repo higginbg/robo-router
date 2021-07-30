@@ -1,11 +1,11 @@
 import { useContext } from 'react';
-import { AppContext } from '../../../context/app';
+import { UserContext } from '../../../context/user';
 import RobotsList from './List';
 
 import styles from './styles.module.css';
 
 const Robots = () => {
-  const { destroyed } = useContext(AppContext);
+  const { destroyed } = useContext(UserContext);
 
   if (destroyed) {
     return <div className={styles.Destroyed}>You destroyed all robots!!!</div>;

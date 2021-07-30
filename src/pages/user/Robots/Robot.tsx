@@ -1,13 +1,13 @@
 import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { AppContext } from '../../../context/app';
+import { UserContext } from '../../../context/user';
 import RobotsList from './List';
 
 import styles from './styles.module.css';
 
 const Robots = () => {
-  const { robots } = useContext(AppContext);
+  const { robots } = useContext(UserContext);
 
   const { id = 1 } = useParams<{ id?: string | undefined }>();
 

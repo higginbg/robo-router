@@ -19,7 +19,7 @@ const UserRoutes = () => (
       children ? (
         <Route key={path} path={path} children={children} exact={exact} />
       ) : (
-        <Route key={path} path={path} exact>
+        <Route key={path} path={path} exact={exact}>
           {Component && <Component />}
         </Route>
       )
