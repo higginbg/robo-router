@@ -1,0 +1,60 @@
+.Container {
+  position: relative;
+  width: 100%;
+}
+
+.List {
+  position: absolute;
+  top: 50px;
+  left: 0;
+}
+
+.List ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.List a {
+  display: block;
+  text-decoration: none;
+  color: var(--gold);
+  padding: 7px 10px;
+  margin: 5px 0;
+  transition: color 300ms ease-in-out;
+}
+
+.List li.Active a {
+  color: var(--white);
+  border-radius: 7px;
+  color: var(--gunmetal);
+  background-color: var(--gold);
+}
+
+.List a:hover {
+  color: var(--white);
+}
+
+.Title {
+  padding: 0 10px;
+}
+
+.Card {
+  text-align: center;
+  width: 300px;
+  padding: 45px 15px 30px 15px;
+  margin: auto;
+  background-color: var(--white);
+  color: var(--gunmetal);
+  border-radius: 7px;
+  box-shadow: -3px 3px 15px 2px rgba(0, 0, 0, 0.15);
+}
+
+.Card img {
+  height: 300px;
+  width: 180px;
+  object-fit: cover;
+  border-radius: 7px;
+  background-color: var(--white);
+  border: 1px solid var(--gold);
+}

@@ -1,0 +1,53 @@
+@import url('../../styles/variables.css');
+
+.Header {
+  display: flex;
+  justify-content: center;
+  background-color: var(--gunmetal);
+  height: var(--header-height);
+  border-bottom: 3px solid var(--gunmetal);
+  transition: background-color 300ms ease-in-out;
+}
+
+.Header.LoggedIn {
+  justify-content: flex-end;
+  background-color: var(--white);
+}
+
+.Title {
+  color: var(--white);
+  align-self: center;
+  user-select: none;
+}
+
+.Link {
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  text-decoration: none;
+  height: 100%;
+  color: var(--gunmetal);
+  background-color: transparent;
+  transition: background-color 300ms ease-in-out;
+}
+
+.Link:hover {
+  background-color: var(--gold);
+}
+
+.Link svg {
+  margin-right: 5px;
+}
+
+.Logout {
+  color: var(--gunmetal);
+  background-color: transparent;
+  border: none;
+  padding: 0 15px;
+  cursor: pointer;
+  transition: background-color 300ms ease-in-out;
+}
+
+.Logout:hover {
+  background-color: var(--gold);
+}

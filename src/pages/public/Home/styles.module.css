@@ -1,0 +1,19 @@
+.Container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+}
+
+.Button {
+  display: block;
+  margin: auto;
+  padding: 15px 30px;
+  border-radius: 9999px;
+  background-color: var(--gold);
+  color: var(--gunmetal);
+  cursor: pointer;
+  text-decoration: none;
+  width: 50px;
+  transition: opacity 300ms ease-in-out;
+}

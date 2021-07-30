@@ -1,0 +1,14 @@
+@import '../../styles/variables.css';
+
+.Link {
+  display: block;
+  padding: 15px;
+  color: var(--white);
+  text-decoration: none;
+  transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
+}
+
+.Link:hover {
+  background-color: var(--white);
+  color: var(--gunmetal);
+}

@@ -1,0 +1,43 @@
+.Container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.Form {
+  width: 200px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: var(--white);
+  padding: 15px;
+  border-radius: 7px;
+}
+
+.Container button {
+  margin-top: 5px;
+}
+
+.Label {
+  font-weight: bold;
+  color: var(--gunmetal);
+  margin-bottom: 5px;
+}
+
+.Input {
+  border-radius: 7px;
+  border: 1px solid var(--gunmetal);
+  padding: 7px 10px;
+  background: var(--gunmetal);
+  color: var(--white);
+}
+
+.Select {
+  width: 100%;
+  padding: 9px 8px;
+  background: var(--gunmetal);
+  color: var(--white);
+  border: none;
+  border-radius: 7px;
+}

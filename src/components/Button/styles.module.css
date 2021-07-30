@@ -1,0 +1,19 @@
+@import url('../../styles/variables.css');
+
+.Button {
+  display: block;
+  margin: auto;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 9999px;
+  background-color: var(--gold);
+  color: var(--gunmetal);
+  cursor: pointer;
+  text-decoration: none;
+  width: 100%;
+  transition: opacity 300ms ease-in-out;
+}
+
+.Button:hover {
+  opacity: 0.8;
+}
