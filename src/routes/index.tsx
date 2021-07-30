@@ -14,12 +14,18 @@ const NotFound = lazy(() => import('../pages/public/NotFound'));
 const Routes = () => {
   const { role } = useContext(AppContext);
 
+  const fallback = (
+    <div style={{ height: '100%', display: 'flex', alignItems: 'center' }}>
+      Loading...
+    </div>
+  );
+
   return (
     <Router>
       <Header />
       <Nav />
       <main>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={fallback}>
           <Switch>
             <Route exact path='/'>
               <Home />

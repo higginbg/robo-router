@@ -10,13 +10,23 @@ import styles from './styles.module.css';
 const Login = () => {
   const { isLoggedIn, login } = useContext(AppContext);
 
+  const [pending, setPending] = useState(false);
   const [role, setRole] = useState('User' as Role);
 
   const roles: Role[] = ['User', 'Supreme ruler'];
 
   const onLogin = () => {
-    login(role);
+    setPending(true);
+
+    setTimeout(() => {
+      setPending(false);
+      login(role);
+    }, 1500)
   };
+
+  if (pending) {
+    return <div className={styles.Container}>Logging in...</div>
+  }
 
   if (isLoggedIn) {
     return <Redirect to='/dashboard' />;
