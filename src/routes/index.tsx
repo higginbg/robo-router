@@ -15,7 +15,15 @@ const Routes = () => {
   const { role } = useContext(AppContext);
 
   const fallback = (
-    <div style={{ height: '100%', display: 'flex', alignItems: 'center' }}>
+    <div
+      style={{
+        fontSize: '2.5em',
+        height: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        userSelect: 'none',
+      }}
+    >
       Loading...
     </div>
   );

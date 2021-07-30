@@ -1,14 +1,21 @@
+import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { robotsData } from '../../../data/robots';
+import { AppContext } from '../../../context/app';
 import RobotsList from './List';
 
 import styles from './styles.module.css';
 
 const Robots = () => {
+  const { robots } = useContext(AppContext);
+
   const { id = 1 } = useParams<{ id?: string | undefined }>();
 
-  const selectedRobot = robotsData.find((robot) => robot.id === +id);
+  if (!robots) {
+    return null;
+  }
+
+  const selectedRobot = robots.find((robot) => robot.id === +id);
   const { name, image } = selectedRobot || {};
 
   return (

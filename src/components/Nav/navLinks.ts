@@ -23,7 +23,7 @@ export const navLinks: Link[] = [
     roles: ['User', 'Supreme ruler'],
   },
   {
-    label: 'Destroy Everything',
+    label: 'Destroy',
     to: '/destruction',
     icon: 'fas fa-bomb',
     roles: ['Supreme ruler'],
