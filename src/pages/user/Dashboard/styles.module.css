@@ -1,0 +1,20 @@
+.Container {
+  font-size: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  text-align: center;
+  user-select: none;
+}
+
+.Count {
+  font-size: 3em;
+  border: 3px solid var(--white);
+  line-height: 1em;
+  padding: 50px;
+  background-color: var(--white);
+  color: var(--gunmetal);
+  border-radius: 7px;
+  margin: 0;
+}

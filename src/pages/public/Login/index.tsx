@@ -21,11 +21,15 @@ const Login = () => {
     setTimeout(() => {
       setPending(false);
       login(role);
-    }, 1500)
+    }, 1500);
   };
 
   if (pending) {
-    return <div className={styles.Container}>Logging in...</div>
+    return (
+      <div className={styles.Container}>
+        <div className={styles.Loading}>Logging in...</div>
+      </div>
+    );
   }
 
   if (isLoggedIn) {
