@@ -1,20 +1,16 @@
 import { lazy } from 'react';
-import { Route } from 'react-router-dom';
-
-import { Route as RouteType } from '../models/route';
+import { Route, RouteProps } from 'react-router-dom';
 
 const Destruction = lazy(() => import('../pages/admin/Destruction'));
 
-export const adminRoutes: RouteType[] = [
-  { path: '/destruction', Component: Destruction, exact: true },
+export const adminRoutes: RouteProps[] = [
+  { path: '/destruction', component: Destruction, exact: true,  },
 ];
 
 const AdminRoutes = () => (
   <>
-    {adminRoutes.map(({ path, Component, exact }) => (
-      <Route key={path} path={path} exact={exact}>
-        {Component && <Component />}
-      </Route>
+    {adminRoutes.map((route) => (
+      <Route key={route.path as string} {...route} />
     ))}
   </>
 );

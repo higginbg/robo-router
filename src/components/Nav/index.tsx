@@ -25,7 +25,7 @@ const Nav = () => {
 
             return (
               <NavLink
-                key={to}
+                key={label}
                 className={styles.Link}
                 activeClassName={styles.Active}
                 to={to}

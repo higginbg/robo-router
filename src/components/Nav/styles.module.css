@@ -59,6 +59,7 @@
   text-decoration: none;
   white-space: nowrap;
   transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
+  user-select: none;
 }
 
 .Link:hover {
@@ -69,6 +70,7 @@
 .Link.Active {
   border-left: 8px solid var(--gold);
   cursor: default;
+  pointer-events: none;
 }
 
 .Link.Active:hover {

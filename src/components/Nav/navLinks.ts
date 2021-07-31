@@ -1,10 +1,12 @@
+import { NavLinkProps } from 'react-router-dom';
+
 import { Role } from '../../models/roles';
 
-interface Link {
-  label: string;
-  to: string;
+type Label = 'Dashboard' | 'Robots' | 'Destroy';
+
+interface Link extends NavLinkProps{
+  label: Label;
   icon: string;
-  exact?: boolean;
   roles?: Role[];
 }
 
