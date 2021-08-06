@@ -1,19 +1,28 @@
 import { useCallback, useContext, useEffect } from 'react';
 
 import { UserContext } from '../../../context/user';
-import { robotsData } from '../../../data/robots';
 
 import styles from './styles.module.css';
 
 const Dashboard = () => {
-  const { robots, loadRobots, robotsLoaded, destroyed } =
+  const { robots, loadRobots, robotsLoaded, error, setError, destroyed } =
     useContext(UserContext);
 
-  const fetchRobots = useCallback(() => {
-    setTimeout(() => {
-      loadRobots(robotsData);
-    }, 1500);
-  }, [loadRobots]);
+  const fetchRobots = useCallback(async () => {
+    const robotEndpoint = 'https://higginbg-robo-router-default-rtdb.firebaseio.com/robots.json';
+    try {
+      const response = await fetch(robotEndpoint);
+      if (!response.ok) {
+        setError('Error retrieving robots.');
+      }
+
+      const data = await response.json();
+      loadRobots(data);
+    }
+    catch (err) {
+      setError('Error retrieving robots.');
+    }
+  }, [loadRobots, setError]);
 
   useEffect(() => {
     if (robotsLoaded) {
@@ -22,6 +31,14 @@ const Dashboard = () => {
 
     fetchRobots();
   }, [robotsLoaded, fetchRobots]);
+
+  if (error) {
+    return (
+      <div className={styles.Container}>
+        <h3>{error}</h3>
+      </div>
+    );
+  }
 
   if (destroyed) {
     return (
