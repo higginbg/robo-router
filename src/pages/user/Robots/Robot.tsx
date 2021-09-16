@@ -9,7 +9,7 @@ import styles from './styles.module.css';
 const Robots = () => {
   const { robots } = useContext(UserContext);
 
-  const { id = 1 } = useParams<{ id?: string | undefined }>();
+  const { id = 1 } = useParams<{ id?: string }>();
 
   if (!robots) {
     return null;
